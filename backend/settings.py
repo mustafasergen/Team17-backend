@@ -124,10 +124,10 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'fanatika',
-        'USER': 'postgres',
-        'PASSWORD': '1cancancan',
-        'HOST': 'localhost',
+        'NAME': 'd4j623kuetegoh',
+        'USER': 'nxuwffxscgiiol',
+        'PASSWORD': 'e542b4966c79e0688bf4d9648d05db7f4c61c59dd89d425aa7e209fe40b94cd4',
+        'HOST': 'ec2-176-34-215-248.eu-west-1.compute.amazonaws.com',
         'PORT': '5432'
     }
 }
