@@ -11,6 +11,7 @@ function RegisterScreen({ location, history }) {
 
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
+    const [team, setTeam] = useState('')
     const [password, setPassword] = useState('')
     const [confirmPassword, setConfirmPassword] = useState('')
     const [message, setMessage] = useState('')
@@ -34,7 +35,7 @@ function RegisterScreen({ location, history }) {
         if (password != confirmPassword) {
             setMessage('Passwords do not match')
         } else {
-            dispatch(register(name, email, password))
+            dispatch(register(name, email, team, password))
         }
 
     }
@@ -67,6 +68,18 @@ function RegisterScreen({ location, history }) {
                         placeholder='Enter Email'
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                    >
+                    </Form.Control>
+                </Form.Group>
+
+                <Form.Group controlId='team'>
+                    <Form.Label>Your Team</Form.Label>
+                    <Form.Control
+                        required
+                        type='team'
+                        placeholder='Enter team'
+                        value={team}
+                        onChange={(e) => setTeam(e.target.value)}
                     >
                     </Form.Control>
                 </Form.Group>

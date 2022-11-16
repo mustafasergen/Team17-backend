@@ -31,7 +31,11 @@ function Header() {
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id='username'>
                                     <LinkContainer to='/profile'>
-                                        <NavDropdown.Item>Profile</NavDropdown.Item>
+                                        <NavDropdown.Item>Account Profile</NavDropdown.Item>
+                                    </LinkContainer>
+
+                                    <LinkContainer to='/my/profile'>
+                                        <NavDropdown.Item>My Profile</NavDropdown.Item>
                                     </LinkContainer>
 
                                     <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
@@ -41,7 +45,7 @@ function Header() {
                                     <LinkContainer to='/login'>
                                         <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
                                     </LinkContainer>
-                                    
+
                                 )}
 
 

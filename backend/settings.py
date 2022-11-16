@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'sc%oco$+(3$z$at=z4j)#l-+ym)+_b11389mdt2^12m$bf63%@'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost','fanatika.herokuapp.com']
 
@@ -121,6 +121,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -128,6 +129,19 @@ DATABASES = {
         'USER': 'nxuwffxscgiiol',
         'PASSWORD': 'e542b4966c79e0688bf4d9648d05db7f4c61c59dd89d425aa7e209fe40b94cd4',
         'HOST': 'ec2-176-34-215-248.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432'
+    }
+}
+
+
+"""
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'fanatika',
+        'USER': 'postgres',
+        'PASSWORD': '1cancancan',
+        'HOST': 'localhost',
         'PORT': '5432'
     }
 }

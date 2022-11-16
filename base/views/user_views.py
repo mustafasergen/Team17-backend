@@ -4,13 +4,13 @@ from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from rest_framework.response import Response
 
 from django.contrib.auth.models import User
-from base.serializers import UserSerializer, UserSerializerWithToken
+from base.serializers import UserSerializer, UserSerializerWithToken,ProfileOwnerSerializer
 # Create your views here.
 from rest_framework_simplejwt.serializers import TokenObtainPairSerializer
 from rest_framework_simplejwt.views import TokenObtainPairView
-
 from django.contrib.auth.hashers import make_password
 from rest_framework import status
+from base.models import Profile
 
 
 class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
@@ -31,19 +31,21 @@ class MyTokenObtainPairView(TokenObtainPairView):
 @api_view(['POST'])
 def registerUser(request):
     data = request.data
-    try:
-        user = User.objects.create(
-            first_name=data['name'],
-            username=data['email'],
-            email=data['email'],
-            password=make_password(data['password'])
-        )
-
-        serializer = UserSerializerWithToken(user, many=False)
-        return Response(serializer.data)
-    except:
-        message = {'detail': 'User with this email already exists'}
-        return Response(message, status=status.HTTP_400_BAD_REQUEST)
+    #try:
+    user = User.objects.create(
+        first_name=data['name'],
+        username=data['email'],
+        email=data['email'],
+        password=make_password(data['password'])
+    )
+    Profile.objects.create(user=user,team=data['team'])
+    user.profile.team = data['team']
+    print(user.profile.bio)
+    serializer = UserSerializerWithToken(user, many=False)
+    return Response(serializer.data)
+    #except:
+       # message = {'detail': 'User with this email already exists'}
+        #return Response(message, status=status.HTTP_400_BAD_REQUEST)
 
 
 @api_view(['PUT'])
@@ -70,6 +72,7 @@ def updateUserProfile(request):
 def getUserProfile(request):
     user = request.user
     serializer = UserSerializer(user, many=False)
+    print(serializer.data)
     return Response(serializer.data)
 
 

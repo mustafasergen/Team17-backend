@@ -35,6 +35,10 @@ import {
 
 } from '../constants/userConstants'
 
+import {
+    USER_MYDETAILS_RESET,
+} from '../constants/profileConstants'
+
 export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({
@@ -76,10 +80,11 @@ export const logout = () => (dispatch) => {
     dispatch({ type: USER_LOGOUT })
     dispatch({ type: USER_DETAILS_RESET })
     dispatch({ type: USER_LIST_RESET })
+    dispatch({ type: USER_MYDETAILS_RESET })
 }
 
 
-export const register = (name, email, password) => async (dispatch) => {
+export const register = (name, email,team, password) => async (dispatch) => {
     try {
         dispatch({
             type: USER_REGISTER_REQUEST
@@ -93,7 +98,7 @@ export const register = (name, email, password) => async (dispatch) => {
 
         const { data } = await axios.post(
             '/api/users/register/',
-            { 'name': name, 'email': email, 'password': password },
+            { 'name': name, 'email': email, 'team': team, 'password': password },
             config
         )
 
