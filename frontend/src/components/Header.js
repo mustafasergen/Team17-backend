@@ -17,11 +17,15 @@ function Header() {
 
     return (
         <header>
-            <Navbar bg="dark" variant="dark" expand="lg" collapseOnSelect>
+            <Navbar  bg="dark" variant="dark" expand="lg"  collapseOnSelect>
                 <Container>
+                    
+                
                     <LinkContainer to='/'>
                         <Navbar.Brand>Fanatika</Navbar.Brand>
                     </LinkContainer>
+
+
 
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
                     <Navbar.Collapse id="basic-navbar-nav">
@@ -42,9 +46,22 @@ function Header() {
 
                                 </NavDropdown>
                             ) : (
-                                    <LinkContainer to='/login'>
-                                        <Nav.Link><i className="fas fa-user"></i>Login</Nav.Link>
+                                    <Container>
+                                
+                                    <LinkContainer to='/fanatika'>
+                                    <Nav.Link><i className="fas fa-user"></i>Fanatika Nedir?</Nav.Link>
                                     </LinkContainer>
+
+                                    <LinkContainer to='/login'>
+                                        <Nav.Link><i className="fas fa-user"></i>Giriş Yap</Nav.Link>
+                                    </LinkContainer>
+
+                                    <LinkContainer to='/register'>
+                                    <Nav.Link><i className="fas fa-user"></i>Kayıt Ol</Nav.Link>
+                                    </LinkContainer>
+
+
+                                    </Container>
 
                                 )}
 

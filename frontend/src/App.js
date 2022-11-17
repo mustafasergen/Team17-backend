@@ -9,6 +9,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import UserListScreen from './screens/UserListScreen'
 import UserEditScreen from './screens/UserEditScreen'
 import MyProfileScreen from './screens/MyProfileScreen'
+import FanatikaScreen from './screens/FanatikaScreen'
 
 
 
@@ -21,13 +22,16 @@ function App() {
           <Route path='/' component={HomeScreen} exact />
           <Route path='/login' component={LoginScreen} />
           <Route path='/register' component={RegisterScreen} />
+          <Route path='/fanatika' component={FanatikaScreen} />
           <Route path='/profile' component={ProfileScreen} />
           <Route path='/my/profile' component={MyProfileScreen} />
           <Route path='/admin/userlist' component={UserListScreen} />
           <Route path='/admin/user/:id/edit' component={UserEditScreen} />
+
+
         </Container>
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Router>
   );
 }
